@@ -1,14 +1,12 @@
 package org.usfirst.frc.team7634.robot.commands;
 
-import org.usfirst.frc.team7634.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team7634.robot.Robot;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
-public class DriveCommand extends Command {
-
-	public DriveCommand() {
-		requires(Robot.driveTrain);
+public class LauncherRaiseCommand extends Command {
+	public LauncherRaiseCommand() {
+		requires(Robot.launcher);
 	}
 
 	@Override
@@ -17,9 +15,7 @@ public class DriveCommand extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT);
-		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT);
-		Robot.driveTrain.drive();
+		Robot.launcher.raise();
 	}
 
 	@Override
@@ -29,9 +25,16 @@ public class DriveCommand extends Command {
 
 	@Override
 	protected void end() {
+		Robot.launcher.resetPos();
 	}
 
 	@Override
 	protected void interrupted() {
+		end();
+	}
+
+	@Override
+	public void setName(String subsystem, String name) {
+
 	}
 }

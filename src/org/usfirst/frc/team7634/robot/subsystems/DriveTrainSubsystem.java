@@ -20,9 +20,9 @@ public class DriveTrainSubsystem extends Subsystem {
 	Talon right2 = new Talon(RobotMap.TALON_RIGHT2);
 
 	//groups both motors as one drive, both motors required for movement
-	public static SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
-	public static SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
-	public static DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
+	public SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
+	public SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
+	public DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
 
 	public double left_axis = 0.0, right_axis = 0.0;
 
