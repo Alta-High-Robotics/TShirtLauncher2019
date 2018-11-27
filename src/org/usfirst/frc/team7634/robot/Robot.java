@@ -7,13 +7,15 @@
 
 package org.usfirst.frc.team7634.robot;
 
+import org.usfirst.frc.team7634.robot.commands.ExampleCommand;
+import org.usfirst.frc.team7634.robot.subsystems.DriveTrainSubsystem;
+
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team7634.robot.commands.ExampleCommand;
-import org.usfirst.frc.team7634.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +25,7 @@ import org.usfirst.frc.team7634.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
+	public static DriveTrainSubsystem driveTrain = new DriveTrainSubsystem();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
