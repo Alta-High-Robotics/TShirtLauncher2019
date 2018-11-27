@@ -17,8 +17,9 @@ import edu.wpi.first.wpilibj.command.Command;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	XboxController controller = new XboxController(1);
-	
+	public XboxController controller = new XboxController(1); //joystick
+
+	/* Easier way to initialize buttons. */
 	public void initButton(JoystickButton button, Joystick js, int buttonNum, Command cmd) {
 		button = new JoystickButton(js, buttonNum);
 		button.whenPressed(cmd);

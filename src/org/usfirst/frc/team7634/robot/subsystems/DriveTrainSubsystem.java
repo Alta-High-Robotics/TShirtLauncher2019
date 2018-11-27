@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team7634.robot.subsystems;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import org.usfirst.frc.team7634.robot.RobotMap;
 import org.usfirst.frc.team7634.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -13,17 +15,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrainSubsystem extends Subsystem {
 	
-	Talon right1 = new Talon(0);
-	Talon right2 = new Talon(1);
-	Victor left1 = new Victor(4);
-	Victor left2 = new Victor(5);
-	
+	Victor left1 = new Victor(RobotMap.VICTOR_LEFT1);
+	Victor left2 = new Victor(RobotMap.VICTOR_LEFT2);
+	Talon right1 = new Talon(RobotMap.TALON_RIGHT1);
+	Talon right2 = new Talon(RobotMap.TALON_RIGHT2);
+
 	//groups both motors as one drive, both motors required for movement
-	public static SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
 	public static SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
-	
+	public static SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
+	public static DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
+
+	public double left_axis = 0.0, right_axis = 0.0;
+
 	public void drive() {
-		
+		drive.tankDrive(left_axis, right_axis);
 	}
 	
 	@Override
