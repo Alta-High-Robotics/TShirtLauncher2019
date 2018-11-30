@@ -3,11 +3,12 @@ package org.usfirst.frc.team7634.robot.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team7634.robot.RobotData;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
 public class LauncherSubsystem extends Subsystem {
 
-	Victor position = new Victor(RobotMap.VICTOR_LAUNCHER); //raise and lower mechanism
+	Victor armSpeed = new Victor(RobotMap.VICTOR_LAUNCHER); //raise and lower mechanism
 	Solenoid launcher = new Solenoid(RobotMap.LAUNCHER_PNEUMATIC); //air launcher
 
 	/**
@@ -20,15 +21,15 @@ public class LauncherSubsystem extends Subsystem {
 	}
 
 	public void raise() {
-		position.set(0.2);
+		armSpeed.set(RobotData.LAUNCHER_RAISE_SPEED);
 	}
 
 	public void lower() {
-		position.set(-0.2);
+		armSpeed.set(-1*RobotData.LAUNCHER_LOWER_SPEED);
 	}
 
-	public void resetPos() {
-		position.set(0);
+	public void stopMovement() {
+		armSpeed.set(0);
 	}
 
 	@Override

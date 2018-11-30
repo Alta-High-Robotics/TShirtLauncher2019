@@ -25,7 +25,7 @@ public class LauncherLowerCommand extends Command {
 
 	@Override
 	protected void end() {
-		Robot.launcher.resetPos();
+		Robot.launcher.stopMovement();
 	}
 
 	@Override

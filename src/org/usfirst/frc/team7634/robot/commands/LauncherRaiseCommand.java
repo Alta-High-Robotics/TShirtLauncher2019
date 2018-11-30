@@ -25,7 +25,7 @@ public class LauncherRaiseCommand extends Command {
 
 	@Override
 	protected void end() {
-		Robot.launcher.resetPos();
+		Robot.launcher.stopMovement();
 	}
 
 	@Override
